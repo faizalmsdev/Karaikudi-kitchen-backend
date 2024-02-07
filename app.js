@@ -5,6 +5,11 @@ const userRouter = require('./routes/userRoute');
 
 const app = express();
 
+// Importing cors 
+const cors = require('cors');
+// Use cors middleware to handle CORS headers
+app.use(cors({ origin: '*' }));
+
 app.use(morgan('dev'));
 app.use(express.json()); // Parse JSON bodies
 
