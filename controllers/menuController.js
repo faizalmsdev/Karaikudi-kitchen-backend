@@ -27,7 +27,7 @@ exports.createMenu = async(req, res) => {
         res.status(200).json({
             status: "success",
             data: {
-                tour: newMenu
+                menu: newMenu
             }
         })
 

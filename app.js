@@ -2,6 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const menuRouter = require('./routes/menuRoute');
 const userRouter = require('./routes/userRoute');
+const reviewRouter = require('./routes/reviewRoute');
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use(express.json()); // Parse JSON bodies
 
 app.use('/api/v1/menu', menuRouter);
 app.use('/api/v1/users', userRouter);
+app.use('/api/v1/review', reviewRouter);
 
 module.exports = app;
