@@ -8,7 +8,7 @@ const menuSchema = new mongoose.Schema({
         required: [true, 'A Menu Must Have a Name'],
         unique: true,
         maxlength : [30, 'A Menu must have less or equal then 30 characters'],
-        minlength : [10 , 'A Menu must have greater or equal than 10 characters'],
+        minlength : [3 , 'A Menu must have greater or equal than 10 characters'],
         // validate : [validator.isAlpha , "Menu name must only contain characters"]
     },
     price:{
@@ -41,8 +41,8 @@ const menuSchema = new mongoose.Schema({
     category : {
         type : String,
         enum:{
-            values : ['popular-choice' , 'people-favorite' , 'high-selling'],
-            message : 'vg_category is required to be either `popular-choice`, `people-favorite` or `high-selling`'
+            values : ['popular-choice' , 'people-favorite' , 'high-selling' , 'others'],
+            message : 'vg_category is required to be either `popular-choice`, `people-favorite` or `high-selling` or `others`'
         }
     },
     images: {

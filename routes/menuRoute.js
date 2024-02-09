@@ -2,6 +2,8 @@ const express = require('express');
 
 const menuController = require('../controllers/menuController');
 
+const upload = require('../middlewares/upload');    
+
 const router = express.Router();
 
 // router 
@@ -11,7 +13,7 @@ const router = express.Router();
 router
     .route('/')
     .get(menuController.getAllMenu)
-    .post(menuController.createMenu);
+    .post(upload.single('images') , menuController.createMenu);
 
 router
     .route('/popular-choice/')

@@ -24,6 +24,10 @@ exports.createMenu = async(req, res) => {
 
         const newMenu = await Menu.create(req.body);
 
+        if(req.file){
+            newMenu.images = req.file.path
+        }
+
         res.status(200).json({
             status: "success",
             data: {
