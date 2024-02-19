@@ -1,14 +1,28 @@
 const Menu = require('../models/menuModels');
 
+
 exports.getAllMenu = async(req,res) => {
     try{
         const menu = await Menu.find();
 
+        const menuWithImageURLs = menu.map(item => ({
+            _id: item._id,
+            dish_name: item.dish_name,
+            price: item.price,
+            instock: item.instock,
+            discount_price_available: item.discount_price_available,
+            discount_price: item.discount_price,
+            description: item.description,
+            vg_category: item.vg_category,
+            category: item.category,
+            images: `http://localhost:3000/${item.images}`
+        }));
+
         res.status(200).json({
             status : 'Success',
-            results: menu.length,
+            results: menuWithImageURLs.length,
             data: {
-                menu,
+                menu: menuWithImageURLs,
             }
         });
     }catch(err){
@@ -19,14 +33,18 @@ exports.getAllMenu = async(req,res) => {
     }
 }
 
+
 exports.createMenu = async(req, res) => {
     try{
 
-        const newMenu = await Menu.create(req.body);
+        let newMenu = req.body;
 
+        console.log(req.body.images, 'path...')
         if(req.file){
             newMenu.images = req.file.path
         }
+
+         newMenu = await Menu.create(newMenu);
 
         res.status(200).json({
             status: "success",

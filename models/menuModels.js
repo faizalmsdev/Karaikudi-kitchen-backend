@@ -45,9 +45,8 @@ const menuSchema = new mongoose.Schema({
             message : 'vg_category is required to be either `popular-choice`, `people-favorite` or `high-selling` or `others`'
         }
     },
-    images: {
-        type: [String] // Array of strings (image URLs)
-    }
+    images: String
+    
 
 });
 
