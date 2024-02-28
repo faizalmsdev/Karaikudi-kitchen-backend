@@ -1,6 +1,4 @@
-const mongoose = require('mongoose'); // Importing the Mongoose library for MongoDB
-const slugify = require('slugify');
-const validator = require('validator');
+const mongoose = require('mongoose');
 
 const menuSchema = new mongoose.Schema({
     dish_name: {
@@ -9,7 +7,6 @@ const menuSchema = new mongoose.Schema({
         unique: true,
         maxlength : [30, 'A Menu must have less or equal then 30 characters'],
         minlength : [3 , 'A Menu must have greater or equal than 10 characters'],
-        // validate : [validator.isAlpha , "Menu name must only contain characters"]
     },
     price:{
         type: Number,
@@ -46,11 +43,8 @@ const menuSchema = new mongoose.Schema({
         }
     },
     images: String
-    
-
 });
 
-// Create a Mongoose model named 'Menu' based on the defined schema 
 const Menu = mongoose.model('Menu', menuSchema);
 
-module.exports= Menu;
+module.exports = Menu;
