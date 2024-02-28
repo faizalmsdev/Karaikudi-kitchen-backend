@@ -24,7 +24,7 @@ exports.getAllMenu = async(req,res) => {
             description: item.description,
             vg_category: item.vg_category,
             category: item.category,
-            images: `${process.env.URL}/${item.images}`
+            images: item.images
         }));
 
         res.status(200).json({
