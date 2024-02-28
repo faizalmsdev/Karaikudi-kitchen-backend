@@ -73,7 +73,7 @@ exports.createMenu = async (req, res) => {
             await blockBlobClient.uploadStream(fs.createReadStream(req.file.path), undefined, undefined, { blobHTTPHeaders: { blobContentType: req.file.mimetype } });
 
             // Get URL of the uploaded blob
-            const imageURL = `https://${process.env.AZURE_STORAGE_ACCOUNT}.blob.core.windows.net/${containerName}/${blobName}`;
+            const imageURL = `https://karaikudikitchen.blob.core.windows.net/${containerName}/${blobName}`;
 
             // Set images field to the Azure Blob Storage URL
             newMenu.images = imageURL;
