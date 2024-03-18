@@ -1,10 +1,11 @@
-// routes/userRoute.js
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
+// Route for user creation
 router.route('/').post(userController.createUser);
 
-// Add more routes as needed for fetching, updating, or deleting users
+// Route for user login
+router.route('/login').post(userController.login);
 
 module.exports = router;
