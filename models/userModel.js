@@ -21,7 +21,7 @@
     },
     roles: {
         type: [String],
-        enum: ['user', 'admin'],
+        enum: ['user', 'itsadmin'],
         default: ['user'],
     },
     });
